@@ -2,7 +2,10 @@ import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
+import { ThemeProvider } from 'styled-components';
 import wrapper from '../store/configureStore';
+import GlobalStyle from '../styles/GlobalStyles';
+import theme from '../styles/theme';
 
 const Tama = ({ Component }) => (
   <>
@@ -10,7 +13,10 @@ const Tama = ({ Component }) => (
       <meta charSet="utf-8" />
       <title>Tama</title>
     </Head>
-    <Component />
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <Component />
+    </ThemeProvider>
   </>
 );
 
